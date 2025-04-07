@@ -1,6 +1,14 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from torchsummary import summary
+
+def init_generator(image_size, in_channels=3,  down_factor=3):
+    """
+        initialize generator for CycleGAN
+    """
+    num_conv_blocks = int(np.log2(image_size))
+    return Generator(ConvDownBlock, ConvUpBlock, in_channels, num_conv_blocks, down_factor)
 
 class Generator(nn.Module):
     def __init__(self, ConvDownBlock, ConvUpBlock, in_channels=3, num_conv_blocks=8, down_factor=3):
@@ -91,6 +99,8 @@ class ConvDownBlock(nn.Module):
             self.act = nn.LeakyReLU(0.2, inplace=True)
         elif act == 'tanh':
             self.act = nn.Tanh()
+        elif act == 'sigmoid':
+            self.act = nn.Sigmoid()
         else:
             raise ValueError("Unsupported activation function: {}".format(act))
     
@@ -124,6 +134,4 @@ class ConvUpBlock(nn.Module):
         return self.act(self.norm(self.conv(x)))
     
     
-generator = Generator(ConvDownBlock, ConvUpBlock)
-# Print the model summary
-summary(generator, (3, 256, 256), device='cpu')
+init_generator(256)
