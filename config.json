@@ -15,7 +15,8 @@
     },
     "data":
     {
-        "batch_size": 8
+        "dataset_dir": "datasets/summer2winter_yosemite",
+        "batch_size": 32
     },
     "isTrain": true
 }
