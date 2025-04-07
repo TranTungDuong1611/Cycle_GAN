@@ -7,6 +7,12 @@ import torch.nn as nn
 from torchsummary import summary
 from models.generator import ConvDownBlock
 
+def init_discriminator(in_channels=3):
+    """
+        initialize discriminator for CycleGAN
+    """
+    return Discriminator(ConvDownBlock, in_channels)
+
 class Discriminator(nn.Module):
     def __init__(self, ConvDownBlock, in_channels=3):
         """ discriminator class for CycleGAN using PatchGAN
