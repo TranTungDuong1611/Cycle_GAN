@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def denormalization(image):
+    return (image * 0.5) + 0.5
+
 def visualize_results(reals_A, fakes_A, recs_A, reals_B, fakes_B, recs_B):
     reals_A = reals_A.cpu().numpy()
     fakes_A = fakes_A.cpu().numpy()
@@ -20,8 +23,12 @@ def visualize_results(reals_A, fakes_A, recs_A, reals_B, fakes_B, recs_B):
         rec_B = np.transpose(recs_B[i], (1, 2, 0))
 
         # Denormalization
-        real_A = (real_A * 0.5) + 0.5
-        real_B = (real_B * 0.5) + 0.5
+        real_A = denormalization(real_A)
+        fake_A = denormalization(fake_A)
+        rec_A = denormalization(rec_A)
+        real_B = denormalization(real_B)
+        fake_B = denormalization(fake_B)
+        rec_B = denormalization(rec_B)
         
         axes[6*i].imshow(real_A)
         axes[6*i].set_title("real A")
