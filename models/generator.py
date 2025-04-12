@@ -122,6 +122,3 @@ class ConvUpBlock(nn.Module):
         
     def forward(self, x):
         return self.act(self.norm(self.conv(x)))
-    
-gan = init_generator()
-summary(gan, (3, 256, 256))
