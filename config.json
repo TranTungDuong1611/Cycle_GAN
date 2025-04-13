@@ -11,12 +11,13 @@
         "lambda_cycle": 10,
         "lambda_identity": 0,
         "image_size": 256,
-        "down_factor": 4
+        "down_factor": 3,
+        "pool_size": 50
     },
     "data":
     {
         "dataset_dir": "datasets/summer2winter_yosemite",
-        "batch_size": 32
+        "batch_size": 1
     },
     "isTrain": true
 }
