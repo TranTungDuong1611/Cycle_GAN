@@ -98,7 +98,7 @@ class CycleGAN(nn.Module):
         if self.opt['isTrain']:
             self.optimizer_D = torch.optim.Adam(
                 list(self.netD_A.parameters()) + list(self.netD_B.parameters()),
-                lr=['model']['lr'],
+                lr=opt['model']['lr'],
                 betas=(opt['model']['beta1'], opt['model']['beta2'])
         )
         # define schedulers
