@@ -4,7 +4,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
-import torch
+
 import torchvision.transforms as transforms
 from torch.utils.data import Dataset, DataLoader
 
@@ -57,5 +57,5 @@ def get_dataloader(mode='train'):
         return train_loader
     else:
         test_dataset = CycleGANDataset(config['data']['dataset_dir'], transform=transform)
-        test_loader = DataLoader(test_dataset, batch_size=config['data']['batch_size'], shuffle=False)
+        test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
         return test_loader

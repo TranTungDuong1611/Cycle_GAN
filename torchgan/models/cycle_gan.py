@@ -5,8 +5,8 @@ import random
 sys.path.append(os.getcwd())
 
 import torch
-from models.generator import *
-from models.discriminator import *
+from torchgan.models.generator import *
+from torchgan.models.discriminator import *
 
 # Image pool
 class ImagePool():

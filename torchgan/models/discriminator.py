@@ -5,7 +5,8 @@ sys.path.append(os.getcwd())
 import torch
 import torch.nn as nn
 from torchsummary import summary
-from models.generator import ConvDownBlock
+
+from torchgan.models.conv_blocks import ConvDownBlock
 
 def init_discriminator(in_channels=3):
     """
