@@ -1,4 +1,4 @@
-*The project are updating...*
+*The project is updating...*
 # TorchGAN: Your Ultimate Framework for Building and Customizing GANs
 Welcome to TorchGAN, a versatile and user-friendly framework designed to simplify the creation, customization, and deployment of Generative Adversarial Networks (GANs). Whether you're a machine learning researcher, data scientist, or creative coder, TorchGAN empowers you with pre-trained weights, modular tools, and an intuitive API to craft state-of-the-art GAN models tailored to your vision.
 
