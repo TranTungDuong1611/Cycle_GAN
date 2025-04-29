@@ -1,4 +1,6 @@
 *The project is updating...*
+
+You can get the pretraied weight in [here](https://drive.google.com/drive/folders/1k2n4I7cs4bsWr6X1tYC4nwRQTzs-diZ6?usp=sharing)
 # TorchGAN: Your Ultimate Framework for Building and Customizing GANs
 Welcome to TorchGAN, a versatile and user-friendly framework designed to simplify the creation, customization, and deployment of Generative Adversarial Networks (GANs). Whether you're a machine learning researcher, data scientist, or creative coder, TorchGAN empowers you with pre-trained weights, modular tools, and an intuitive API to craft state-of-the-art GAN models tailored to your vision.
 
@@ -58,6 +60,7 @@ Generative Adversarial Networks are transforming domains like image synthesis, s
 
     ```python
     from torchgan.models import CycleGAN
+    from torchgan.engine import Engine
 
     # Initialize model
     # You can set path to your pretrained weigth or use 'default' for our weight
@@ -75,12 +78,22 @@ Generative Adversarial Networks are transforming domains like image synthesis, s
         dataset_path='path/to/your/dataset'
     )
     # Train
-    model.train(
-        dataset=dataset,
+    Engine.train(
+        model=model,
+        type='cyclegan',
+        train_dataset=train_dataset,
         epochs=10,
         lr=0.0001,
         step_size=30,
         save_path='path/to/save/weight'
+    )
+
+    # Evaluation
+    Engine.eval(
+        model=model,
+        type='cyclegan',
+        val_dataset=val_dataset,
+        metric='psnr'   # psnr | fid | is
     )
 
 
@@ -92,18 +105,18 @@ Explore the examples/ folder for more tutorials, including DCGAN, StyleGAN3, and
 - Winter to Summer
 
 <p align="center">
-  <img src="images/cyclegan/winter1.png" width="45%" />
+  <img src="images/cyclegan/winter1.jpg" width="45%" />
   <img src="images/cyclegan/summer1.png" width="45%" /><br>
-  <img src="images/cyclegan/winter2.png" width="45%" />
+  <img src="images/cyclegan/winter2.jpg" width="45%" />
   <img src="images/cyclegan/summer2.png" width="45%" />
 </p>
 
 - Summer to Winter
 
 <p align="center">
-  <img src="images/cyclegan/summer3.png" width="45%" />
+  <img src="images/cyclegan/summer3.jpg" width="45%" />
   <img src="images/cyclegan/winter3.png" width="45%" /><br>
-  <img src="images/cyclegan/summer4.png" width="45%" />
+  <img src="images/cyclegan/summer4.jpg" width="45%" />
   <img src="images/cyclegan/winter4.png" width="45%" />
 </p>
 
